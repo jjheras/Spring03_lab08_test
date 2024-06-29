@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="1" author="you" runOnChange="true">
+        <createTable tableName="brand">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="warranty" type="INT"/>
+            <column name="country" type="VARCHAR(250)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="you" runOnChange="true">
+        <insert tableName="brand">
+            <column name="name" value="Toyota"/>
+            <column name="warranty" valueNumeric="2"/>
+            <column name="country" value="Japan"/>
+        </insert>
+        <insert tableName="brand">
+            <column name="name" value="Ford"/>
+            <column name="warranty" valueNumeric="3"/>
+            <column name="country" value="USA"/>
+        </insert>
+        <insert tableName="brand">
+            <column name="name" value="Chevrolet"/>
+            <column name="warranty" valueNumeric="3"/>
+            <column name="country" value="USA"/>
+        </insert>
+    </changeSet>
+
+
+
+</databaseChangeLog>

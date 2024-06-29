@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="2" author="you" runOnChange="true">
+        <createTable tableName="car">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="brandid" type="INT"/>
+            <column name="model" type="VARCHAR(250)"/>
+            <column name="year" type="INT"/>
+            <column name="numberofdoors" type="INT"/>
+            <column name="isconvertible" type="BOOLEAN"/>
+            <column name="mileage" type="INT"/>
+            <column name="price" type="DOUBLE"/>
+            <column name="description" type="TEXT"/>
+            <column name="colour" type="VARCHAR(250)"/>
+            <column name="fueltype" type="VARCHAR(250)"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="car"
+                baseColumnNames="brandid"
+                constraintName="FK_car_brand"
+                referencedTableName="brand"
+                referencedColumnNames="id"
+        />
+    </changeSet>
+
+    <changeSet id="4" author="you" runOnChange="true">
+        <insert tableName="car">
+            <column name="brandid" valueNumeric="1"/>
+            <column name="model" value="Corolla"/>
+            <column name="year" valueNumeric="2022"/>
+            <column name="numberofdoors" valueNumeric="4"/>
+            <column name="isconvertible" valueBoolean="false"/>
+            <column name="mileage" valueNumeric="0"/>
+            <column name="price" valueNumeric="25000"/>
+            <column name="description" value="Coche compacto"/>
+            <column name="colour" value="Gris"/>
+            <column name="fueltype" value="Gasoline"/>
+        </insert>
+        <insert tableName="car">
+            <column name="brandid" valueNumeric="2"/>
+            <column name="model" value="Mustang"/>
+            <column name="year" valueNumeric="2023"/>
+            <column name="numberofdoors" valueNumeric="2"/>
+            <column name="isconvertible" valueBoolean="true"/>
+            <column name="mileage" valueNumeric="15000"/>
+            <column name="price" valueNumeric="45000"/>
+            <column name="description" value="Coche sport"/>
+            <column name="colour" value="Rojo"/>
+            <column name="fueltype" value="Gasoline"/>
+        </insert>
+        <insert tableName="car">
+            <column name="brandid" valueNumeric="3"/>
+            <column name="model" value="Leon"/>
+            <column name="year" valueNumeric="2020"/>
+            <column name="numberofdoors" valueNumeric="5"/>
+            <column name="isconvertible" valueBoolean="false"/>
+            <column name="mileage" valueNumeric="2000"/>
+            <column name="price" valueNumeric="50000"/>
+            <column name="description" value="Coche en perfectas condiciones"/>
+            <column name="colour" value="Azul"/>
+            <column name="fueltype" value="Gasoil"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>
